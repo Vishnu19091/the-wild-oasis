@@ -1,10 +1,9 @@
 // <-------- This will always be rendered Server-Side -------->
 
-import Counter from "@/app/_components/Counter";
 import style from "./page.module.css";
-import { title } from "process";
-import CabinCard from "@/app/_components/CabinCard";
-import { getCabins } from "../_lib/data-service";
+import CabinList from "../_components/CabinList";
+import { Suspense } from "react";
+import Spinner from "../_components/Spinner";
 // import Navigation from "../components/Navigation";
 
 interface PostProp {
@@ -57,11 +56,7 @@ function Test() {
   );
 }
 
-export default async function Page() {
-  // CHANGE
-  const cabins = await getCabins();
-  console.log(cabins);
-
+export default function Page() {
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -76,13 +71,16 @@ export default async function Page() {
         to paradise.
       </p>
 
-      {cabins.length > 0 && (
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14">
-          {cabins.map((cabin) => (
-            <CabinCard cabin={cabin} key={cabin.id} />
-          ))}
-        </div>
-      )}
+      {/* This Suspense Component wrap ups the server-side component
+      where data fetching is done, in the meantime this will fall back to a
+      component that we specify (in this case, we load a spinner component
+      to let the user know the data is being fetched)
+
+      MUST ALWAYS OUTSIDE THE ASYNC COMPONENT
+      */}
+      <Suspense fallback={<Spinner />}>
+        <CabinList />
+      </Suspense>
     </div>
   );
 }
