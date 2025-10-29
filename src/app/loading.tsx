@@ -14,8 +14,10 @@ but we can overcome that using Suspense
 
 */
 
+import Spinner from "@/app/_components/Spinner";
+
 function Loading() {
-  return <p>LOADING DATA....</p>;
+  return <Spinner />;
 }
 
 export default Loading;

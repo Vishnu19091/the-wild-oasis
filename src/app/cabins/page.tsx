@@ -4,6 +4,7 @@ import Counter from "@/app/_components/Counter";
 import style from "./page.module.css";
 import { title } from "process";
 import CabinCard from "@/app/_components/CabinCard";
+import { getCabins } from "../_lib/data-service";
 // import Navigation from "../components/Navigation";
 
 interface PostProp {
@@ -56,9 +57,10 @@ function Test() {
   );
 }
 
-export default function Page() {
+export default async function Page() {
   // CHANGE
-  const cabins = [];
+  const cabins = await getCabins();
+  console.log(cabins);
 
   return (
     <div>
