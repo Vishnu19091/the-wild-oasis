@@ -78,7 +78,7 @@ export default function Page() {
 
       MUST ALWAYS OUTSIDE THE ASYNC COMPONENT
       */}
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Spinner>Loading</Spinner>}>
         <CabinList />
       </Suspense>
     </div>
