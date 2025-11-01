@@ -6,6 +6,19 @@ type PageProps = {
   params: any;
 };
 
+/**
+ * This generateMetadata is an async
+ 
+ * function that actually fetches & display
+
+ *  dynamic data in the tab.
+ */
+export async function generateMetadata({ params }: PageProps) {
+  const { name } = await getCabin(params.cabinId);
+
+  return { title: `Cabin ${name}` };
+}
+
 export default async function Page({ params }: PageProps) {
   const cabin = await getCabin(params.cabinId);
 
