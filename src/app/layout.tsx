@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
 
 import "@/app/_styles/globals.css";
-import Navigation from "@/app/_components/Navigation";
-import Logo from "@/app/_components/Logo";
+// import Navigation from "@/app/_components/Navigation";
+// import Logo from "@/app/_components/Logo";
 
 import { Josefin_Sans } from "next/font/google";
 import Header from "@/app/_components/Header";

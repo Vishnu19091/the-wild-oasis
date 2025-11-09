@@ -1,4 +1,4 @@
-import Navigation from "../_components/Navigation";
+// import Navigation from "../_components/Navigation";
 
 export const metadata = {
   title: "Guest area",
