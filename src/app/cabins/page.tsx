@@ -14,17 +14,6 @@ import Spinner from "../_components/Spinner";
 //   body: string;
 // }
 
-/*
-This really needs to be a integer value
-
-By exporting this revalidate var makes this route ISR
-
-Value specified must always in seconds
-*/
-
-// export const revalidate = 3600;
-export const revalidate = 15;
-
 export const metadata = {
   title: "Cabins",
 };
